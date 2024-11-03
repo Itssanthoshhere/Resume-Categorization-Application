@@ -1,6 +1,7 @@
 # Resume Categorization Application
 
 ![Resume Categorization Application](https://via.placeholder.com/800x200.png?text=Resume+Categorization+Application)
+![Resume Categorization Application](https://github.com/Itssanthoshhere/Resume-Categorization-Application/blob/main/Sample%20Interface.png?raw=true)
 
 ## Overview
 
