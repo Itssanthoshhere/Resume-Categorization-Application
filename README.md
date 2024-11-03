@@ -2,7 +2,7 @@
 
 ![Resume Categorization Application](https://via.placeholder.com/1000x100.png?text=Resume+Categorization+Application)
 ![Resume Categorization Application](https://github.com/Itssanthoshhere/Resume-Categorization-Application/blob/main/Sample%20Interface.png?raw=true)
-![Resume Categorization](https://github.com/yourusername/Resume_Categorization_Application/blob/main/resume_categorization.png)
+![Resume Categorization Application](https://github.com/yourusername/Resume_Categorization_Application/blob/main/resume_categorization.png)
 
 
 
