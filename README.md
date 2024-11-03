@@ -99,5 +99,9 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 - [pandas](https://pandas.pydata.org) for data manipulation.
 - [pypdf](https://pypdf2.readthedocs.io/en/latest/) for PDF text extraction.
 - [scikit-learn](https://scikit-learn.org) for machine learning functionalities.
+  
+## 🔗 Connect with Me
+- **LinkedIn:** [Santhosh VS](https://www.linkedin.com/in/thesanthoshvs/)
+- **GitHub:** [Itssanthoshhere](https://github.com/Itssanthoshhere)
 
 For any questions or feedback, feel free to reach out via [santhosh02vs@gmail.com](santhosh02vs@gmail.com).
