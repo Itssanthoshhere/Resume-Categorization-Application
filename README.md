@@ -3,107 +3,176 @@
 ![Resume Categorization Application](https://via.placeholder.com/1000x100.png?text=Resume+Categorization+Application)
 ![Resume Categorization Application](https://github.com/Itssanthoshhere/Resume-Categorization-Application/blob/main/Sample%20Interface.png?raw=true)
 
-## 🚀 Overview
+## 📋 Overview  
 
-The **Resume Categorization Application** is a machine learning-powered tool designed to categorize resumes based on their content. Built using Python and Streamlit, this application provides an interactive user interface that allows users to upload multiple PDF resumes, which are then processed and categorized into relevant job roles.
+The **Resume Categorization Application** is a Python-based solution powered by Machine Learning to classify resumes into predefined job categories. It offers a simple yet efficient interface built with **Streamlit** for uploading, categorizing, and organizing resumes in just a few clicks.
 
-### 🌟 Features
+### ✨ Key Features  
+- **Resume Upload**: Accepts multiple PDF files for processing.  
+- **Categorization**: Analyzes resume content to predict job roles like Java Developer, Data Scientist, etc.  
+- **Result Export**: Outputs categorized results in a downloadable CSV format.  
+- **Interactive Interface**: A clean and user-friendly interface for a seamless experience.
 
-- **Upload Resumes**: Users can upload multiple PDF files containing resumes for categorization.
-- **Categorization**: Each resume is analyzed and classified into predefined job categories such as Java Developer, Python Developer, Data Science, etc.
-- **Download Results**: Users can download a summary of categorized results as a CSV file.
-- **User-Friendly Interface**: Built with Streamlit, providing a seamless experience for users.
+---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies Used  
 
-- **Python**: The primary programming language used for development.
-- **Streamlit**: A framework for building web applications in Python.
-- **pandas**: A data manipulation library used for handling dataframes.
-- **pypdf**: A library for reading PDF files to extract text.
-- **scikit-learn**: A machine learning library used for model training and prediction.
-- **Pickle**: For serializing and deserializing Python objects.
+| **Category**       | **Technologies**                                                                 |
+|---------------------|----------------------------------------------------------------------------------|
+| Programming Language| Python                                                                          |
+| Framework           | Streamlit                                                                      |
+| Libraries           | `pandas`, `pypdf`, `nltk`, `scikit-learn`, `Pickle`                             |
+| ML Techniques       | NLP (Text Cleaning, TF-IDF Vectorization), Logistic Regression, SVM, Naive Bayes|
 
-## 📦 Installation
+---
 
-Follow these steps to set up the application on your local machine:
+## 🚀 Installation  
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/Resume_Categorization_Application.git
-   ```
+Follow these steps to set up the application:  
 
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd Resume_Categorization_Application
-   ```
+### 1. Clone the Repository  
+```bash
+git clone https://github.com/Itssanthoshhere/Resume-Categorization-Application.git
+cd Resume-Categorization-Application
+```
 
-3. **Install Required Libraries**:
-   It is recommended to use a virtual environment. If you haven't set one up, you can do so with the following commands:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-   Then, install the required libraries:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Create and Activate Virtual Environment  
+```bash
+python -m venv venv
+source venv/bin/activate    # On Windows use `venv\Scripts\activate`
+```
 
-4. **Run the Application**:
-   Start the Streamlit application using the following command:
-   ```bash
-   streamlit run app.py
-   ```
+### 3. Install Dependencies  
+```bash
+pip install -r requirements.txt
+```
 
-### ⚙️ How It Works
+### 4. Run the Application  
+```bash
+streamlit run app.py
+```
 
-1. **Upload PDF Files**: Click on the "Choose PDF files" button to upload resumes.
-2. **Specify Output Directory**: Provide a directory where categorized resumes will be saved.
-3. **Categorize Resumes**: Click the "Categorize Resumes" button to start the categorization process.
-4. **Download Results**: Once the categorization is complete, download the results as a CSV file for further analysis.
+---
 
-## 🎯 Use Cases
+## ⚙️ How It Works  
 
-- **HR Departments**: Simplify the resume sorting process.
-- **Recruitment Agencies**: Enhance the speed and accuracy of candidate assessments.
-- **Job Seekers**: Understand the skill sets and requirements for various job categories.
+### **Step-by-Step Guide**  
+1. **Upload Resumes**: Upload multiple PDF resumes via the interface.  
+2. **Process Resumes**: Click on "Categorize Resumes" to analyze the content.  
+3. **Categorization**: Resumes are classified into roles like Java Developer, Python Developer, Data Scientist, etc.  
+4. **Download Results**: Save results as a CSV for further analysis.  
 
+---
 
-## Model Information
+## 💻 Code Highlights  
 
-The application uses a pre-trained machine learning model to categorize resumes. The model is trained on a labeled dataset, and predictions are made based on features extracted from the resumes.
+### **Text Preprocessing**  
+Removes URLs, special characters, and unwanted spaces to clean the resume content.  
+```python
+import re
 
-### Category Mapping
+def clean_resume(text):
+    text = re.sub('http\S+', ' ', text)
+    text = re.sub('[^A-Za-z0-9]+', ' ', text)
+    return text.lower().strip()
+```
 
-The following job categories are used in the application:
-- Java Developer
-- Python Developer
-- Data Science
-- Web Designing
-- DevOps Engineer
-- Testing
-- HR
-- Mechanical Engineer
-- And more...
+### **Machine Learning Model Loading**  
+Pre-trained models and vectorizers are loaded using Pickle for efficient predictions.  
+```python
+import pickle
 
-## 💡 Contributing
+with open('vectorizer.pkl', 'rb') as vec_file:
+    vectorizer = pickle.load(vec_file)
 
-We welcome contributions! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
+with open('model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
+```
 
-### Steps to Contribute
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
+### **Streamlit Interface**  
+Interactive interface for file upload and result display.  
+```python
+import streamlit as st
 
-## Acknowledgments
+st.title("Resume Categorization Application")
+uploaded_files = st.file_uploader("Upload Resumes (PDF)", type="pdf", accept_multiple_files=True)
+if st.button("Categorize Resumes"):
+    results = categorize_resumes(uploaded_files)
+    st.write(results)
+```
 
-- [Streamlit](https://streamlit.io) for the framework used to build the web application.
-- [pandas](https://pandas.pydata.org) for data manipulation.
-- [pypdf](https://pypdf2.readthedocs.io/en/latest/) for PDF text extraction.
-- [scikit-learn](https://scikit-learn.org) for machine learning functionalities.
-  
+---
+
+## 🎯 Applications  
+
+This application can be used in various domains:  
+
+- **Recruitment Agencies**: Automate resume classification for faster candidate evaluation.  
+- **HR Teams**: Organize large volumes of resumes with minimal effort.  
+- **Job Portals**: Provide categorization tools for users uploading resumes.  
+
+---
+
+## 📊 Model and Categories  
+
+### **Categories**  
+Resumes are classified into the following job roles:  
+- Java Developer  
+- Python Developer  
+- Data Scientist  
+- Web Developer  
+- DevOps Engineer  
+- Testing Engineer  
+- HR  
+- Mechanical Engineer  
+
+### **Model Overview**  
+The ML model is trained on a labeled dataset using:  
+- **Text Features**: Extracted using TF-IDF vectorization.  
+- **Classification Algorithms**: Logistic Regression, SVM, Naive Bayes, etc.  
+
+---
+
+## 📦 Folder Structure  
+
+```
+Resume-Categorization-Application/
+│
+├── .ipynb_checkpoints/           # Jupyter Notebook checkpoints
+├── Resume Data For Testing/      # Sample resume PDFs for testing
+├── categorized_resumes/          # Folder to save categorized resumes
+├── Dataset - Resume.csv          # Dataset used for training the model
+├── README.md                     # Project documentation
+├── Resume Categorization using Python.ipynb # Jupyter Notebook with the workflow
+├── Sample Interface.png          # Screenshot of the application
+├── app.py                        # Main application file
+├── model.pkl                     # Trained ML model
+├── test.py                       # Unit tests for the application
+```
+
+--- 
+
+## 🏗️ Contributing  
+
+Contributions are welcome! Here's how you can help:  
+
+1. Fork the repository.  
+2. Create a new branch for your feature (`git checkout -b feature-name`).  
+3. Make your changes and commit them (`git commit -m "Add feature"`)  
+4. Push your branch (`git push origin feature-name`)  
+5. Open a pull request.  
+
+---
+
+## 🙏 Acknowledgments  
+
+- **[Streamlit](https://streamlit.io)** for the web application framework.  
+- **[scikit-learn](https://scikit-learn.org)** for machine learning capabilities.  
+- **[pandas](https://pandas.pydata.org)** for data handling.  
+- **[pypdf2](https://pypdf2.readthedocs.io)** for PDF text extraction.  
+
+---
+
 ## 🔗 Connect with Me
 - **LinkedIn:** [Santhosh VS](https://www.linkedin.com/in/thesanthoshvs/)
 - **GitHub:** [Itssanthoshhere](https://github.com/Itssanthoshhere)
@@ -111,11 +180,3 @@ We welcome contributions! If you have suggestions or improvements, feel free to 
 ## 📞 Contact
 
 For any questions or feedback, feel free to reach out via [santhosh02vs@gmail.com](santhosh02vs@gmail.com).
-
-
-
-
-
-
-
-
