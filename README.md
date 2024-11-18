@@ -138,19 +138,27 @@ The ML model is trained on a labeled dataset using:
 ```
 Resume-Categorization-Application/
 │
-├── .ipynb_checkpoints/           # Jupyter Notebook checkpoints
-├── Resume Data For Testing/      # Sample resume PDFs for testing
-├── categorized_resumes/          # Folder to save categorized resumes
-├── Dataset - Resume.csv          # Dataset used for training the model
-├── README.md                     # Project documentation
-├── Resume Categorization using Python.ipynb # Jupyter Notebook with the workflow
-├── Sample Interface.png          # Screenshot of the application
-├── app.py                        # Main application file
-├── model.pkl                     # Trained ML model
-├── test.py                       # Unit tests for the application
+├── .ipynb_checkpoints/               # Jupyter Notebook checkpoints
+├── Resume Data For Testing/          # Sample resume PDFs for testing
+├── categorized_resumes/              # Folder to save categorized resumes
+├── Dataset - Resume.csv              # Dataset used for training the model
+├── Project Submission_Resume Categorization Application.pdf  
+│                                      # Submission document for the project
+├── Project_Report_Santhosh_VS_[E23CSEU1150].pdf  
+│                                      # Detailed project report
+├── README.md                         # Project documentation
+├── Resume Categorization using Python.ipynb 
+│                                      # Jupyter Notebook with the workflow
+├── Resume-Categorization-Application.pptx 
+│                                      # Presentation for the project
+├── Sample Interface.png              # Screenshot of the application interface
+├── app.py                            # Main application file
+├── model.pkl                         # Trained ML model
+├── test.py                           # Unit tests for the application
+├── tfidf.pkl                         # Saved TF-IDF vectorizer
 ```
 
---- 
+---
 
 ## 🏗️ Contributing  
 
